@@ -11910,8 +11910,8 @@ MonoBehaviour:
   playerTarget: {fileID: 951762435}
   player: {fileID: 188341054}
   speed: 2
-  speedIncrease: 0.3
-  speedCap: 10
+  speedIncrease: 0.5
+  speedCap: 15
   maxMoveDistance: 4
   stopDuration: {x: 0.5, y: 1}
   speedCurve:
@@ -11940,7 +11940,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   targetMoveToPoints: []
   timeBeforeDeath: 15
-  timeToAdd: 7.5
+  timeToAdd: 6
   startTime: 10
   scoreText: {fileID: 1563633221}
   deathTimerText: {fileID: 1017377863}
