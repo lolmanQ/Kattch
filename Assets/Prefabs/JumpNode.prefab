@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000a165dac7f3eb74a4
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.8971366, b: 0.2980392, a: 1}
   m_Intensity: 0.91
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000a165dac7f3eb74a4
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
   - {x: -0.5, y: 0.5, z: 0}
   m_ShapePathHash: 160822549
   m_Mesh: {fileID: 0}
-  m_InstanceId: 179026
+  m_InstanceId: 65286
 --- !u!114 &2232871918418913403
 MonoBehaviour:
   m_ObjectHideFlags: 0

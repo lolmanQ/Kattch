@@ -30,8 +30,8 @@ public class JumpNode : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		platformLight.color = Color.Lerp(defaultPlatformColor, platformLight.color, 0.95f);
-		lampLight.color = Color.Lerp(defaultLampColor, lampLight.color, 0.95f);
+		platformLight.color = Color.Lerp(defaultPlatformColor, platformLight.color, 0.98f);
+		lampLight.color = Color.Lerp(defaultLampColor, lampLight.color, 0.98f);
 	}
 
 	public void SetPlatColor(Color color)

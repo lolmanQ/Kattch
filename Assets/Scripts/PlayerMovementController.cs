@@ -43,6 +43,9 @@ public class PlayerMovementController : MonoBehaviour
 	[SerializeField]
 	private Gradient gradient;
 
+	[SerializeField]
+	private Color lampCol, platCol;
+
 	private AudioSource jumpAudioSource;
 
 	// Start is called before the first frame update
@@ -158,8 +161,8 @@ public class PlayerMovementController : MonoBehaviour
 		transform.position = to.pos;
 		currentNode = to;
 		Color newColor = gradient.Evaluate(Random.Range(0f, 1f));
-		to.SetPlatColor(newColor);
-		to.SetLampColor(newColor);
+		to.SetPlatColor(platCol);
+		to.SetLampColor(lampCol);
 		isMoving = false;
 		//Time.timeScale = 1f;
 	}

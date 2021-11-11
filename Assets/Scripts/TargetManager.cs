@@ -5,7 +5,7 @@ using UnityEngine;
 public class TargetManager : MonoBehaviour
 {
 	[SerializeField]
-	private GameObject playerTarget, player;
+	private GameObject playerTarget, player, gotVFXG;
 
 	[SerializeField]
 	private float speed = 2f, speedIncrease = 0.3f, speedCap = 10f, maxMoveDistance = 10f;
@@ -27,13 +27,15 @@ public class TargetManager : MonoBehaviour
 
 	private float deathTimer;
 
-	private bool isMoving = false;
+	private bool isMoving = false, dead = false;
 
 	[SerializeField]
 	private TMPro.TextMeshProUGUI scoreText, deathTimerText;
 
 	[SerializeField]
 	private AudioSource hitAudioSource;
+
+	public EndMenu endMenu;
 
 	private void Awake()
 	{
@@ -46,11 +48,12 @@ public class TargetManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		Time.timeScale = 1;
 		deathTimer = startTime;
 		lastPoint = SetNewPoint(true);
 		playerTarget.transform.position = lastPoint;
 		nextPoint = SetNewPoint();
-		score = 0;	
+		score = 0;
 	}
 
 	// Update is called once per frame
@@ -76,9 +79,11 @@ public class TargetManager : MonoBehaviour
 		{
 			deathTimerText.SetText("Time left: " + Mathf.Round(deathTimer * 10) / 10);
 		}
-		else if(deathTimer <= 0)
+		else if(deathTimer <= 0 && !dead)
 		{
+			dead = true;
 			deathTimerText.SetText("Out of time");
+			endMenu.TurnOn();
 			Time.timeScale = 0;
 		}
 	}
@@ -143,6 +148,8 @@ public class TargetManager : MonoBehaviour
 	{
 		//Debug.Log("Hit");
 		StopAllCoroutines();
+		GameObject vfx = Instantiate(gotVFXG, playerTarget.transform.position, playerTarget.transform.rotation);
+		Destroy(vfx, 1f);
 		isMoving = false;
 		stopTimer = Random.Range(stopDuration.x, stopDuration.y);
 		Vector3 newPoint = SetNewPoint(true);
@@ -162,6 +169,8 @@ public class TargetManager : MonoBehaviour
 		{
 			score++;
 		}
+		score = Mathf.Round(score * 10) / 10;
+
 		deathTimer = clampedDeathTimer;
 
 		scoreText.SetText("Score: " + score);
